@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +22,52 @@ namespace TaRenemer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel viewModel;
+        private MainModel model;
+
         public MainWindow()
         {
             InitializeComponent();
+            Clear();
         }
 
+        private void Clear()
+        {
+            viewModel = new MainViewModel();
+            model = new MainModel(viewModel);
+            this.DataContext = viewModel;
+        }
+
+        /// <summary>
+        /// OpenDirectoryButton_Click
+        /// </summary>
         private void OpenDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Cursor = Cursors.Wait;
+
+                // Select directory.
+                var dialog = new OpenFileDialog()
+                {
+                    FileName = "SelectFolder",
+                    Filter = "Folder|.",
+                    CheckFileExists = false
+                };
+                if (dialog.ShowDialog() == true)
+                {
+                    string folderpath = dialog.FileName;
+                    this.model.OpenDirectory(folderpath);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMessageBox.Error(ex);
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
+            }
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

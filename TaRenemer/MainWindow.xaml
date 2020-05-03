@@ -20,7 +20,7 @@
             <Button Name="OpenDirectoryButton" Padding="0" Click="OpenDirectoryButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="{StaticResource FolderBitmaiImage}" Height="20" Margin="5,0,0,0" />
-                    <Label>Open Directory</Label>
+                    <Label>Open Folder</Label>
                 </StackPanel>
             </Button>
             <TextBox Name="DirectoryPathTextBox" IsReadOnly="True" Margin="10,0,0,0" Background="Gainsboro" Text="{Binding DirectoryPath}" />

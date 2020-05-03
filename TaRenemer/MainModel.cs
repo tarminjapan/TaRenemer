@@ -14,5 +14,13 @@ namespace TaRenemer
         {
             viewModel = vm;
         }
+
+        /// <summary>
+        /// ディレクトリを開く
+        /// </summary>
+        public void OpenDirectory(string path)
+        {
+            viewModel.DirectoryPath = path;
+        }
     }
 }
