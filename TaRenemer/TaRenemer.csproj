@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\FileDirectory.cs" />
+    <Compile Include="MainModel.cs" />
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Utility\InputCheckResult.cs" />
+    <Compile Include="Utility\MessageBox.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +99,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Icons\apply.png" />
+    <Resource Include="Resources\Icons\button_cancel.png" />
+    <Resource Include="Resources\Icons\database.png" />
+    <Resource Include="Resources\Icons\db_update.png" />
+    <Resource Include="Resources\Icons\error.png" />
+    <Resource Include="Resources\Icons\exit.png" />
+    <Resource Include="Resources\Icons\folder_yellow.png" />
+    <Resource Include="Resources\Icons\help_index.png" />
+    <Resource Include="Resources\Icons\info.png" />
+    <Resource Include="Resources\Icons\stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

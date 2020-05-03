@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaRenemer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TaRenemer" Height="500" Width="800"
+        Style="{StaticResource MainWindow}">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Margin="10,10,10,5">
+            <!-- Open Directory Button-->
+            <Button Name="OpenDirectoryButton" Padding="0" Click="OpenDirectoryButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource FolderBitmaiImage}" Height="20" Margin="5,0,0,0" />
+                    <Label>Open Directory</Label>
+                </StackPanel>
+            </Button>
+            <TextBox Name="DirectoryPathTextBox" IsReadOnly="True" Margin="10,0,0,0" Background="Gainsboro" Text="{Binding DirectoryPath}" />
+        </DockPanel>
+
+        <Grid Grid.Row="1" Margin="10,5,10,5">
+            <!-- FileListDataGrid -->
+            <DataGrid ItemsSource="{Binding FileList}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <!-- Before Name -->
+                    <DataGridTextColumn Header="Before Name" Binding="{Binding OriginFileName}" IsReadOnly="True">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="Gainsboro" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2" Margin="10,5,10,10">
+            <!-- Update Button -->
+            <Button Name="UpdateButton" Padding="0" Click="UpdateButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ApplyBitmapImage}" Height="26" Margin="5,0,0,0" />
+                    <Label>Update</Label>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

@@ -4,6 +4,43 @@
              xmlns:local="clr-namespace:TaRenemer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- BitmapImage -->
+        <BitmapImage x:Key="ApplyBitmapImage" UriSource="/Resources/Icons/apply.png" />
+        <BitmapImage x:Key="CancelBitmapImage" UriSource="/Resources/Icons/button_cancel.png" />
+        <BitmapImage x:Key="DatabaseBitmaiImage" UriSource="/Resources/Icons/database.png" />
+        <BitmapImage x:Key="DatabaseUpdateBitmapImage" UriSource="/Resources/Icons/db_update.png" />
+        <BitmapImage x:Key="ErrorBitmapImage" UriSource="/Resources/Icons/stop.png" />
+        <BitmapImage x:Key="ExitBitmaiImage" UriSource="/Resources/Icons/exit.png" />
+        <BitmapImage x:Key="FolderBitmaiImage" UriSource="/Resources/Icons/folder_yellow.png" />
+        <BitmapImage x:Key="InfoBitmapImage" UriSource="/Resources/Icons/info.png" />
+        <BitmapImage x:Key="QuestionBitmapImage" UriSource="/Resources/Icons/help_index.png" />
+        <BitmapImage x:Key="ExclamationBitmapImage" UriSource="Resources/Icons/error.png" />
+
+        <!-- Window -->
+        <Style x:Key="MainWindow" TargetType="Window">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="MinHeight" Value="300" />
+            <Setter Property="MinWidth" Value="400" />
+        </Style>
+
+        <Style x:Key="MessageBoxWindow" TargetType="Window">
+            <Setter Property="Background" Value="Azure" />
+            <Setter Property="Height" Value="200" />
+            <Setter Property="MinHeight" Value="200" />
+            <Setter Property="MinWidth" Value="300" />
+            <Setter Property="ResizeMode" Value="NoResize" />
+            <Setter Property="Width" Value="300" />
+        </Style>
+
+        <!-- Button -->
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <!-- TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>

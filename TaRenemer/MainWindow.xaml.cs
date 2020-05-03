@@ -24,5 +24,13 @@ namespace TaRenemer
         {
             InitializeComponent();
         }
+
+        private void OpenDirectoryButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
