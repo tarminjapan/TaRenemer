@@ -48,15 +48,10 @@ namespace TaRenemer
                 Cursor = Cursors.Wait;
 
                 // Select directory.
-                var dialog = new OpenFileDialog()
+                var dialog = new WindowsFormsApp1.FolderSelectDialog() { Title = "Select Folder" };
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    FileName = "SelectFolder",
-                    Filter = "Folder|.",
-                    CheckFileExists = false
-                };
-                if (dialog.ShowDialog() == true)
-                {
-                    string folderpath = dialog.FileName;
+                    string folderpath = dialog.Path;
                     this.model.OpenDirectory(folderpath);
                 }
             }

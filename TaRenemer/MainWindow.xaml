@@ -28,16 +28,24 @@
 
         <Grid Grid.Row="1" Margin="10,5,10,5">
             <!-- FileListDataGrid -->
-            <DataGrid ItemsSource="{Binding FileList}" AutoGenerateColumns="False">
+            <DataGrid ItemsSource="{Binding FileInfos}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
+                    <!-- Name -->
+                    <DataGridTextColumn Header="Name" Binding="{Binding NewFileNameWithoutExtension, Mode=TwoWay}" />
+                    <!-- Extension -->
+                    <DataGridTextColumn Header="Extension" Binding="{Binding NewFileExtension, Mode=TwoWay}" />
+                    <!-- FileName -->
+                    <DataGridTextColumn Header="FileName" Binding="{Binding NewFileName, Mode=TwoWay}" />
                     <!-- Before Name -->
-                    <DataGridTextColumn Header="Before Name" Binding="{Binding OriginFileName}" IsReadOnly="True">
+                    <DataGridTextColumn Header="Before Name" Binding="{Binding OriginFileName, Mode=OneWay}" IsReadOnly="True">
                         <DataGridTextColumn.CellStyle>
                             <Style TargetType="{x:Type DataGridCell}">
                                 <Setter Property="Background" Value="Gainsboro" />
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
+                    <!-- Creation -->
+                    <!-- Last Update -->
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
