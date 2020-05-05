@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TaRenemer
 {
@@ -37,8 +38,17 @@ namespace TaRenemer
                 var fd = new FileInfo(filePath);
                 viewModel.FileInfos.Add(fd);
             }
+        }
 
-            //int a = 1;
+        /// <summary>
+        /// Update Name
+        /// </summary>
+        public void UpdateName()
+        {
+            foreach (FileInfo fd in viewModel.FileInfos)
+            {
+                System.IO.File.Move(fd.OriginFileFullPath, fd.NewFileFullPath);
+            }
         }
     }
 }

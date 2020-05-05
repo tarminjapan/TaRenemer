@@ -45,28 +45,43 @@ namespace TaRenemer
         {
             try
             {
-                Cursor = Cursors.Wait;
-
                 // Select directory.
                 var dialog = new WindowsFormsApp1.FolderSelectDialog() { Title = "Select Folder" };
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     string folderpath = dialog.Path;
-                    this.model.OpenDirectory(folderpath);
+
+                    // Load files in the seleted directory.
+                    model.OpenDirectory(folderpath);
                 }
             }
             catch (Exception ex)
             {
                 ShowMessageBox.Error(ex);
             }
-            finally
-            {
-                Cursor = Cursors.Arrow;
-            }
         }
 
+        /// <summary>
+        /// UpdateButton_Click
+        /// </summary>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (!ShowMessageBox.YesNo("Do you really rename files?"))
+                { return; }
+
+                // Run update name.
+                model.UpdateName();
+                ShowMessageBox.Information("Files has been renamed.");
+
+                // Load files in the seleted directory.
+                model.OpenDirectory(viewModel.DirectoryPath);
+            }
+            catch (Exception ex)
+            {
+                ShowMessageBox.Error(ex);
+            }
         }
     }
 }

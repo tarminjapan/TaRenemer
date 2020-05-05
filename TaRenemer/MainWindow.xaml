@@ -30,12 +30,6 @@
             <!-- FileListDataGrid -->
             <DataGrid ItemsSource="{Binding FileInfos}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <!-- Name -->
-                    <DataGridTextColumn Header="Name" Binding="{Binding NewFileNameWithoutExtension, Mode=TwoWay}" />
-                    <!-- Extension -->
-                    <DataGridTextColumn Header="Extension" Binding="{Binding NewFileExtension, Mode=TwoWay}" />
-                    <!-- FileName -->
-                    <DataGridTextColumn Header="FileName" Binding="{Binding NewFileName, Mode=TwoWay}" />
                     <!-- Before Name -->
                     <DataGridTextColumn Header="Before Name" Binding="{Binding OriginFileName, Mode=OneWay}" IsReadOnly="True">
                         <DataGridTextColumn.CellStyle>
@@ -44,8 +38,28 @@
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
+                    <!-- Name -->
+                    <DataGridTextColumn Header="Name" Binding="{Binding NewFileNameWithoutExtension, Mode=TwoWay}" />
+                    <!-- Extension -->
+                    <DataGridTextColumn Header="Extension" Binding="{Binding NewFileExtension, Mode=TwoWay}" />
+                    <!-- FileName -->
+                    <DataGridTextColumn Header="FileName" Binding="{Binding NewFileName, Mode=TwoWay}" />
                     <!-- Creation -->
+                    <DataGridTextColumn Header="Creation" Binding="{Binding CreationTime, StringFormat={}{0:yyyy-M-d H:mm:ss}}" IsReadOnly="True">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="Gainsboro" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
                     <!-- Last Update -->
+                    <DataGridTextColumn Header="Last Update" Binding="{Binding LastWriteTime, StringFormat={}{0:yyyy-M-d H:mm:ss}}" IsReadOnly="True">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="Gainsboro" />
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -55,7 +69,7 @@
             <Button Name="UpdateButton" Padding="0" Click="UpdateButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="{StaticResource ApplyBitmapImage}" Height="26" Margin="5,0,0,0" />
-                    <Label>Update</Label>
+                    <Label>Rename files</Label>
                 </StackPanel>
             </Button>
         </StackPanel>
